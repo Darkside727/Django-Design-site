@@ -1,0 +1,139 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/style1.css'%}">
+  <link href="{%static 'css/contact.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+      <header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="{%static 'images/logo.png'%}" width="80px">
+      </div>
+      <nav>
+        <ul>
+         {% if request.session.customer_id %}
+          <li>
+            <a href="{%url 'home' %}">Home</a>
+          </li>
+          <li>
+            <a href="{%url 'products' %}">Products</a>
+          </li>
+          <li>
+            <a href="{%url 'order' %}">Orders</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="{%url 'contact' %}">contact</a>
+          </li>
+          <li>
+            <a href="{% url 'cart' %}"> Cart <span style="color: red;font-weight: bold;">{{request.session.cart.keys|length}}</span></a>
+          </li>
+           <li>
+            <a href="#">Check out</a>
+          </li>
+          <li>
+            <a href="{%url 'logout' %}">Logout</a>
+          </li>
+          {%else%}
+          <li>
+            <a href="{%url 'home' %}">Home</a>
+          </li>
+          <li>
+            <a href="{%url 'products' %}">Products</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="{%url 'contact' %}">contact</a>
+          </li>
+          
+           <li>
+            <a href="{% url 'cart' %}">Cart</a>
+          </li>
+           <li>
+            <a href="#">Check out</a>
+          </li>
+            <li>
+            <a href="{%url 'account' %}">Account</a>
+          </li>
+           <li>
+            <a href="{%url 'login' %}">Login</a>
+          </li>
+          {%endif%}
+        </ul>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <h1>SK Karahi <br>and Design Center </h1>
+        <p>A design is a plan or specification for the construction of an object or system or for the implementation of <br>an activity or process, or the result of that plan or<br> specification in the form of a prototype, product or process. The verb to design expresses the process of developing a design.</p>
+        <a href="" class="btn"> Explore Now &#8594</a>
+      </div>
+      <div class="col-2">
+        <img src="{%static 'images/pic7.jpg' %}">
+      </div>
+    </div>
+  </div>
+</header>
+
+
+   {%block body%}
+
+   {%endblock%}
+
+    <!-- footer -->
+<div class="footer">
+  <div class="container">
+
+    <div class="row">
+      <div class="footer-col-1">
+        <h3> Buy Over Products </h3>
+        <p>A design is a plan or specification for the construction of an object or system or for the implementationA design is a plan or specification for the construction of an object or system or for the implementationA design is a plan or specification for the construction of an object or system or for the implementationA design is a plan or specification for the construction of an object or system or for the implementation</p>
+      </div>
+
+      <div class="footer-col-2">
+        <img src="{%static 'images/logo.png' %}">
+        <h3>SK Design</h3>
+      </div>
+
+      <div class="footer-col-3">
+        <h3> Useful Links </h3>
+        <ul>
+          <li>Blog Post</li>
+          <li>Return Policy</li>
+          <li>Join Affilates</li>
+        </ul>
+      </div>
+
+      <div class="footer-col-3">
+        <h3> Follow Us </h3>
+        <ul>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+          <li>Youtube</li>
+        </ul>
+      </div>
+
+      <hr class="hr-set">
+
+      <p class="copy-right" style="color: white">Copyrights Issue 2020 - SK Design</p>
+    </div>
+  </div>
+</div>
+
+</body>
